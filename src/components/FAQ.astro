@@ -128,6 +128,7 @@ const { faq } = CONTENT;
     line-height: 1.4;
   }
 
+  /* + icon, rotates to × when open */
   .faq-icon {
     flex-shrink: 0;
     width: 20px;
@@ -139,14 +140,17 @@ const { faq } = CONTENT;
     font-family: var(--font-heading);
     font-size: 18px;
     line-height: 1;
+    transition: rotate 0.3s ease;
   }
-
-  /* + when closed, − when open */
   .faq-icon::after {
     content: '+';
   }
-  .faq-item[open] .faq-icon::after {
-    content: '−';
+  .faq-item[open] .faq-icon {
+    rotate: 45deg;
+  }
+
+  .faq-item {
+    interpolate-size: allow-keywords;
   }
 
   .faq-answer {
@@ -154,6 +158,16 @@ const { faq } = CONTENT;
     font-size: 14px;
     color: var(--color-body-light);
     line-height: 1.7;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    padding-bottom: 0;
+    transition: height 0.35s ease, opacity 0.25s ease, padding-bottom 0.35s ease;
+  }
+
+  .faq-item[open] .faq-answer {
+    height: auto;
+    opacity: 1;
     padding-bottom: 16px;
   }
 </style>
