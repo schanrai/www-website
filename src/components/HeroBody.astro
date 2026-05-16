@@ -13,7 +13,7 @@ const { hero } = CONTENT;
       <LaunchPill text={hero.launch} />
     </div>
     <div class="hero-body-right">
-      <a href={hero.ctaHref} class="cta-btn">{hero.cta}</a>
+      <a href={hero.ctaHref} class="cta-btn cta-btn--large">{hero.cta}</a>
     </div>
   </div>
 </section>
@@ -38,10 +38,12 @@ const { hero } = CONTENT;
       flex-direction: row;
       gap: 60px;
       align-items: flex-start;
+      justify-content: space-between;
     }
 
     .hero-body-left {
       flex: 1;
+      max-width: 850px;
     }
 
     .hero-body-right {
@@ -62,6 +64,6 @@ const { hero } = CONTENT;
     font-family: var(--font-body);
     font-size: 16px;
     color: var(--color-body-light);
-    margin-bottom: 8px;
+    margin-bottom: 20px;
   }
 </style>
