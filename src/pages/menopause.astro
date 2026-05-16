@@ -302,7 +302,7 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
     .what-is-inner {
       flex-direction: row;
       gap: 60px;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .what-is-text {
@@ -312,6 +312,9 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
     .what-is-photo-wrap {
       flex: 0 0 40%;
       max-width: 480px;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 12px;
     }
   }
 
@@ -329,10 +332,11 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
 
   .what-is-photo {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 12px;
     display: block;
     object-fit: cover;
+    object-position: center center;
   }
 
   /* ── WHY WATER ── */
