@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage?: string;
+  isHomepage?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage = '/og-image.jpg',
+  isHomepage = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.waterwomanwellness.com';
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthClub',
+  name: 'Water Woman Wellness',
+  url: siteUrl,
+  description:
+    'Therapeutic aqua yoga for women navigating chronic pain, menopause, and healthy aging.',
+  areaServed: [
+    'Hollywood, FL',
+    'Fort Lauderdale, FL',
+    'Pembroke Pines, FL',
+    'Aventura, FL',
+    'Sunny Isles, FL',
+    'North Miami, FL',
+  ],
+  founder: 'Sushi Chanrai',
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/Mark.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD: homepage only -->
+    {isHomepage && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

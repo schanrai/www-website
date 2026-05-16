@@ -1,0 +1,54 @@
+---
+// KIT FORM PLACEHOLDER — replace this entire block with actual Kit embed code when available
+---
+
+<!-- KIT FORM PLACEHOLDER — replace this entire block with actual Kit embed code when available -->
+<form class="waitlist-form" action="#" method="POST">
+  <input
+    type="email"
+    name="email"
+    placeholder="Your email address"
+    required
+    aria-label="Email address"
+  />
+  <button type="submit" class="cta-btn cta-btn--large">Join the waitlist</button>
+</form>
+
+<style>
+  .waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  @media (min-width: 480px) {
+    .waitlist-form {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  .waitlist-form input[type="email"] {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 16px; /* prevent iOS Safari auto-zoom */
+    color: var(--color-body);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand);
+    border-radius: 0;
+    padding: 14px 18px;
+    min-height: 44px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .waitlist-form input[type="email"]::placeholder {
+    color: var(--color-body-light);
+  }
+
+  .waitlist-form input[type="email"]:focus {
+    border-color: var(--color-aqua);
+  }
+</style>

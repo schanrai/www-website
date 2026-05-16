@@ -1,0 +1,12 @@
+---
+interface Props {
+  href: string;
+  large?: boolean;
+  class?: string;
+}
+const { href, large = false, class: className = '' } = Astro.props;
+---
+
+<a href={href} class:list={['cta-btn', large && 'cta-btn--large', className]}>
+  <slot />
+</a>

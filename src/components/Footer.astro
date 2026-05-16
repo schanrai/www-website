@@ -1,0 +1,178 @@
+---
+interface Props {
+  currentPage?: '/' | '/seniors' | '/menopause';
+}
+const { currentPage = '/' } = Astro.props;
+---
+
+<footer>
+  <div class="footer-inner">
+    <!-- Top row -->
+    <div class="footer-top">
+      <!-- Brand lockup -->
+      <div class="brand-lockup">
+        <div class="brand-mark-row">
+          <img
+            src="/images/Mark.png"
+            alt="Water Woman Wellness mark"
+            height="44"
+            width="auto"
+            class="brand-mark"
+          />
+          <span class="footer-tagline">Freedom in Movement</span>
+        </div>
+        <p class="footer-location">Hollywood, Broward County, South Florida</p>
+      </div>
+
+      <!-- Link columns -->
+      <div class="footer-links">
+        <div class="link-col">
+          <p class="link-col-heading">Navigate</p>
+          <a href="/menopause" class="footer-link">Menopause</a>
+          <a href="/seniors" class="footer-link">Seniors</a>
+        </div>
+        <div class="link-col">
+          <p class="link-col-heading">Connect</p>
+          <a href="#" class="footer-link">Instagram</a>
+          <a href="#" class="footer-link">Phone</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="footer-rule" />
+
+    <!-- Bottom row -->
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 Water Woman Wellness. All rights reserved.</p>
+      <p class="footer-brand">A Chikitsa LLC brand</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--color-deep-teal);
+    padding: 48px var(--section-px) 32px;
+  }
+
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .brand-lockup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .brand-mark-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-mark {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--color-white);
+  }
+
+  .footer-location {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-body-light);
+    margin-top: 4px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 60px;
+    flex-shrink: 0;
+  }
+
+  .link-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-col-heading {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-aqua);
+    margin-bottom: 14px;
+  }
+
+  .footer-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-pale-aqua);
+    margin-bottom: 6px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-link:hover {
+    opacity: 0.75;
+  }
+
+  .footer-rule {
+    border: none;
+    border-top: 1px solid rgba(98, 199, 199, 0.15);
+    margin: 32px 0 20px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-legal,
+  .footer-brand {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-body-light);
+  }
+
+  @media (max-width: 600px) {
+    .footer-top {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-links {
+      gap: 32px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+</style>

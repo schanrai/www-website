@@ -1,0 +1,102 @@
+---
+interface Props {
+  currentPage?: '/' | '/seniors' | '/menopause';
+}
+const { currentPage = '/' } = Astro.props;
+
+const navLinks = [
+  { label: 'Menopause', href: '/menopause' },
+  { label: 'Seniors', href: '/seniors' },
+];
+---
+
+<header>
+  <nav>
+    <a href="/" class="logo-link" aria-label="Water Woman Wellness — home">
+      <img
+        src="/images/Logo.png"
+        alt="Water Woman Wellness"
+        height="96"
+        width="auto"
+        loading="eager"
+      />
+    </a>
+    <div class="nav-links">
+      {navLinks
+        .filter(link => link.href !== currentPage)
+        .map(link => (
+          <a href={link.href} class="nav-link">{link.label}</a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-ivory-alt);
+    border-bottom: 1px solid rgba(216, 199, 180, 0.19);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 105px;
+    padding: 28px var(--section-px);
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo-link img {
+    height: clamp(60px, 8vw, 96px);
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-deep-teal);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    nav {
+      height: auto;
+      padding: 16px var(--section-px);
+    }
+
+    .nav-links {
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+    }
+  }
+</style>

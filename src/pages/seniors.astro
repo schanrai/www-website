@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Aqua Yoga for Seniors | Gentle water exercise in Broward & North Miami"
+  description="Gentle aqua yoga and low impact pool-based exercise for seniors. Support mobility, balance, flexibility, and strength. Serving Broward & North Miami."
+  canonicalUrl="https://www.waterwomanwellness.com/seniors"
+>
+  <Header currentPage="/seniors" />
+
+  <main>
+
+    <!-- ── 1. HERO ── -->
+    <!-- Headline, tagline, subheadline, lead paragraph, CTA -->
+    <section class="section-placeholder section-hero" aria-label="Hero">
+      <div class="placeholder-inner">
+        <p class="placeholder-label">Hero</p>
+        <p class="placeholder-note">Headline · Tagline · Subheadline · Lead paragraph · CTA</p>
+      </div>
+    </section>
+
+    <!-- ── 2. WHAT IS AQUA YOGA FOR SENIORS ── -->
+    <!-- Bridges search language to the offering, land vs water comparison, props -->
+    <section class="section-placeholder" aria-label="What is Aqua Yoga for Seniors">
+      <div class="placeholder-inner">
+        <p class="placeholder-label">What is Aqua Yoga for Seniors</p>
+        <p class="placeholder-note">Search bridge · Land vs water comparison · Props</p>
+      </div>
+    </section>
+
+    <!-- ── 3. WHY WATER WORKS FOR SENIORS ── -->
+    <!-- Bullet points, condition-specific -->
+    <section class="section-placeholder" aria-label="Why Water Works for Seniors">
+      <div class="placeholder-inner">
+        <p class="placeholder-label">Why Water Works for Seniors</p>
+        <p class="placeholder-note">Bullet points · Condition-specific benefits</p>
+      </div>
+    </section>
+
+    <!-- ── 4. WHAT TO EXPECT ── -->
+    <!-- Class format, location, launch date, CTA -->
+    <section class="section-placeholder" aria-label="What to Expect">
+      <div class="placeholder-inner">
+        <p class="placeholder-label">What to Expect</p>
+        <p class="placeholder-note">Class format · Location · Launch date · CTA</p>
+      </div>
+    </section>
+
+    <!-- ── 5. MEET SUSHI ── -->
+    <!-- Anchor link to main page About section -->
+    <section class="section-placeholder section-meet-sushi" aria-label="Meet Sushi">
+      <div class="placeholder-inner">
+        <p class="placeholder-label">Meet Sushi</p>
+        <a href="/#about" class="meet-sushi-link">Learn more about Sushi on the main page →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer currentPage="/seniors" />
+</BaseLayout>
+
+<style>
+  .section-placeholder {
+    padding: var(--section-py) var(--section-px);
+    border-bottom: 2px dashed rgba(98, 199, 199, 0.3);
+    background-color: var(--color-ivory);
+  }
+
+  .section-placeholder:nth-child(even) {
+    background-color: rgba(188, 231, 228, 0.15);
+  }
+
+  .section-hero {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+  .placeholder-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .placeholder-label {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-deep-teal);
+  }
+
+  .placeholder-note {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-body-light);
+  }
+
+  .section-meet-sushi {
+    background-color: var(--color-ivory-alt);
+  }
+
+  .meet-sushi-link {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-gold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .meet-sushi-link:hover {
+    opacity: 0.75;
+  }
+</style>

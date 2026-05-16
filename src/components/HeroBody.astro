@@ -1,0 +1,67 @@
+---
+import LaunchPill from './ui/LaunchPill.astro';
+import { CONTENT } from '../content/homepage';
+
+const { hero } = CONTENT;
+---
+
+<section class="hero-body">
+  <div class="hero-body-inner">
+    <div class="hero-body-left">
+      <p class="hero-subheading">{hero.subheading}</p>
+      <p class="hero-location">{hero.location}</p>
+      <LaunchPill text={hero.launch} />
+    </div>
+    <div class="hero-body-right">
+      <a href={hero.ctaHref} class="cta-btn cta-btn--large">{hero.cta}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-body {
+    background-color: var(--color-ivory);
+    padding: clamp(32px, 5vw, 48px) var(--section-px) clamp(40px, 6vw, 72px);
+  }
+
+  .hero-body-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .hero-body-inner {
+      flex-direction: row;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .hero-body-left {
+      flex: 1;
+    }
+
+    .hero-body-right {
+      flex: 0 0 auto;
+      padding-top: 4px;
+    }
+  }
+
+  .hero-subheading {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
+    color: var(--color-body);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .hero-location {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--color-body-light);
+    margin-bottom: 8px;
+  }
+</style>

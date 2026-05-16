@@ -1,0 +1,38 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+
+<span class="launch-pill">
+  <span class="launch-dot" aria-hidden="true"></span>
+  {text}
+</span>
+
+<style>
+  .launch-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    background-color: rgba(188, 231, 228, 0.375);
+    border: 1px solid rgba(98, 199, 199, 0.25);
+    padding: 6px 14px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-deep-teal);
+    margin-top: 8px;
+    white-space: nowrap;
+  }
+
+  .launch-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-aqua);
+    flex-shrink: 0;
+  }
+</style>

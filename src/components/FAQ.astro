@@ -1,0 +1,149 @@
+---
+import SectionLabel from './ui/SectionLabel.astro';
+import { CONTENT } from '../content/homepage';
+
+const { faq } = CONTENT;
+---
+
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <SectionLabel color="var(--color-deep-teal)">{faq.label}</SectionLabel>
+    </div>
+
+    <div class="faq-columns">
+      <!-- For Individuals -->
+      <div class="faq-col">
+        <h2 class="faq-col-heading">{faq.individual.heading}</h2>
+        {faq.individual.items.map((item, i) => (
+          <details class="faq-item" open={i === 0 || undefined}>
+            <summary class="faq-question">
+              <span class="faq-q-text">{item.q}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <!-- For Facilities -->
+      <div class="faq-col">
+        <h2 class="faq-col-heading">{faq.facility.heading}</h2>
+        {faq.facility.items.map((item, i) => (
+          <details class="faq-item" open={i === 0 || undefined}>
+            <summary class="faq-question">
+              <span class="faq-q-text">{item.q}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background-color: var(--color-ivory);
+    padding: var(--section-py-sm) var(--section-px);
+    padding-top: 83px;
+  }
+
+  .faq-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .faq-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .faq-columns {
+      flex-direction: row;
+      gap: 60px;
+    }
+
+    .faq-col {
+      flex: 1;
+    }
+  }
+
+  .faq-col-heading {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    margin-bottom: 16px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(216, 199, 180, 0.31);
+  }
+
+  /* Remove default disclosure triangle */
+  .faq-item summary {
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+    gap: 12px;
+    min-height: 44px;
+    user-select: none;
+  }
+
+  .faq-q-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    line-height: 1.4;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-aqua);
+    font-family: var(--font-heading);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* + when closed, − when open */
+  .faq-icon::after {
+    content: '+';
+  }
+  .faq-item[open] .faq-icon::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-body-light);
+    line-height: 1.7;
+    padding-bottom: 16px;
+  }
+</style>

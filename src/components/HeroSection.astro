@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/class-noodles.png';
+import { CONTENT } from '../content/homepage';
+
+const { hero } = CONTENT;
+---
+
+<section class="hero">
+  <Image
+    src={heroImg}
+    alt="Water Woman Wellness aqua yoga class"
+    class="hero-photo"
+    loading="eager"
+    fetchpriority="high"
+    widths={[768, 1280, 1440]}
+    sizes="100vw"
+  />
+  <div class="hero-overlay">
+    <h1 class="hero-headline">{hero.tagline}</h1>
+    <p class="hero-supporting">{hero.supporting}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      height: 600px;
+      min-height: 600px;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: unset;
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0, 61, 74, 0.88) 0%, rgba(0, 61, 74, 0) 100%);
+    padding: clamp(80px, 12vw, 140px) var(--section-px) clamp(32px, 4vw, 52px);
+  }
+
+  .hero-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4.5vw + 0.5rem, 3.75rem);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    max-width: 900px;
+  }
+
+  .hero-supporting {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.375rem);
+    font-weight: 400;
+    color: var(--color-pale-aqua);
+    line-height: 1.4;
+  }
+</style>

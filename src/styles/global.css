@@ -1,0 +1,229 @@
+/* ============================================================
+   WATER WOMAN WELLNESS — GLOBAL STYLES
+   Source of truth: design_handoff_homepage/README.md
+   ============================================================ */
+
+/* ── @font-face: Futura Now Headline (18 weights/styles) ── */
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineThin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineLight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineLightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadline.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineMediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineBoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineBlack.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineBlackItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraBlack.woff2') format('woff2');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura Now Headline';
+  src: url('/fonts/FuturaNowHeadlineExtraBlackItalic.woff2') format('woff2');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Design Tokens ── */
+:root {
+  --color-deep-teal:  #064653;
+  --color-teal-dark:  #003D4A;
+  --color-aqua:       #62C7C7;
+  --color-aqua-light: #6FCFD0;
+  --color-pale-aqua:  #BCE7E4;
+  --color-gold:       #B8962E;
+  --color-ivory:      #F7F2EC;
+  --color-ivory-alt:  #FAF6F1;
+  --color-sand:       #D8C7B4;
+  --color-white:      #FFFFFF;
+  --color-body:       #3A5058;
+  --color-body-light: #6A7E84;
+
+  --font-heading: 'Futura Now Headline', 'Jost', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+  --font-script:  'Dancing Script', cursive;
+
+  /* Fluid spacing */
+  --section-px: clamp(20px, 5.5vw, 80px);
+  --section-py: clamp(56px, 8vw, 100px);
+  --section-py-sm: clamp(40px, 6vw, 80px);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-body);
+  background-color: var(--color-ivory-alt);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Global Utility: CTA Button ── */
+/* Source: README.md §Reusable Components */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+  min-height: 44px;
+  transition: opacity 0.2s ease;
+}
+.cta-btn:hover {
+  opacity: 0.88;
+}
+.cta-btn--large {
+  padding: 18px 48px;
+  font-size: 16px;
+}
+
+/* ── Global Utility: Section Eyebrow Label ── */
+/* Source: README.md §Reusable Components */
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-aqua);
+  margin-bottom: 16px;
+}
