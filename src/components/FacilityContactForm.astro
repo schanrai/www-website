@@ -158,7 +158,7 @@
   const MESSAGES: Record<string, string> = {
     'first-name': 'Please enter your first name.',
     'last-name': 'Please enter your last name.',
-    email: 'Please enter a valid email address.',
+    email: 'Please enter your email address.',
     'contact-type': 'Please select how you are contacting us.',
     message: 'Please enter your inquiry.',
     consent: 'You must agree to the terms to proceed.',
@@ -192,7 +192,10 @@
         el.type === 'email' && !el.validity.valid && el.value.trim() !== '';
 
       if (isEmpty || isInvalidEmail) {
-        markInvalid(el, MESSAGES[el.name] ?? 'This field is required.');
+        const msg = isInvalidEmail
+          ? 'Please enter a valid email address (e.g. name@example.com).'
+          : (MESSAGES[el.name] ?? 'This field is required.');
+        markInvalid(el, msg);
         valid = false;
       } else {
         markValid(el);
@@ -205,6 +208,15 @@
   form.querySelectorAll<HTMLElement>('[required]').forEach((field) => {
     field.addEventListener('input', () => markValid(field));
     field.addEventListener('change', () => markValid(field));
+  });
+
+  // Email: validate format on blur so the user gets immediate feedback
+  const emailField = form.querySelector<HTMLInputElement>('[name="email"]')!;
+  emailField.addEventListener('blur', () => {
+    const val = emailField.value.trim();
+    if (val !== '' && !emailField.validity.valid) {
+      markInvalid(emailField, 'Please enter a valid email address (e.g. name@example.com).');
+    }
   });
 
   const successEl = document.querySelector<HTMLElement>('.form-success')!;
@@ -306,23 +318,22 @@
     border: none;
     padding: 0;
     background-color: var(--color-ivory);
-    max-width: 560px;
+    max-width: 420px;
     width: calc(100% - 32px);
-    /* Browser auto-centers showModal() dialogs; constrain height for tall viewports */
     max-height: 90vh;
     overflow: hidden;
+    /* Explicit centering — belt-and-suspenders on top of showModal() default */
+    margin: auto;
   }
 
   .inquiry-dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
   }
 
-  /* Prevent the dialog from being wider than viewport on very small screens */
   @media (max-width: 480px) {
     .inquiry-dialog {
       width: 100%;
       max-width: 100%;
-      /* Slide up from the bottom on mobile */
       position: fixed;
       bottom: 0;
       left: 0;
@@ -334,7 +345,7 @@
   }
 
   .dialog-inner {
-    padding: 40px;
+    padding: 24px;
     position: relative;
     overflow-y: auto;
     max-height: 90vh;
@@ -342,7 +353,7 @@
 
   @media (max-width: 480px) {
     .dialog-inner {
-      padding: 28px 20px 36px;
+      padding: 20px 16px 28px;
       max-height: 92vh;
     }
   }
@@ -350,17 +361,17 @@
   /* ── Close button ── */
   .dialog-close {
     position: absolute;
-    top: 10px;
-    right: 12px;
-    width: 44px;
-    height: 44px;
+    top: 6px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1;
     color: var(--color-body-light);
     transition: color 0.2s ease;
@@ -373,22 +384,22 @@
 
   /* ── Header ── */
   .dialog-header {
-    margin-bottom: 24px;
-    padding-right: 40px; /* keep clear of the close button */
+    margin-bottom: 14px;
+    padding-right: 32px;
   }
 
   .dialog-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.25rem, 3vw + 0.25rem, 1.5rem);
+    font-size: clamp(1rem, 2vw + 0.25rem, 1.125rem);
     font-weight: 600;
     color: var(--color-deep-teal);
     line-height: 1.2;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .dialog-subtitle {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-body-light);
     line-height: 1.6;
   }
@@ -396,12 +407,12 @@
   /* ── Success message ── */
   .form-success {
     text-align: center;
-    padding: 32px 20px;
+    padding: 20px 12px;
   }
 
   .form-success p {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--color-deep-teal);
     line-height: 1.5;
@@ -410,22 +421,22 @@
   .form-success p::before {
     content: '';
     display: block;
-    width: 48px;
-    height: 3px;
+    width: 32px;
+    height: 2px;
     background-color: var(--color-aqua);
-    margin: 0 auto 20px;
+    margin: 0 auto 14px;
     border-radius: 2px;
   }
 
   /* ── Form-level error ── */
   .form-error {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 12px;
     color: #b91c1c;
     background-color: rgba(185, 28, 28, 0.07);
     border: 1px solid rgba(185, 28, 28, 0.18);
-    padding: 10px 14px;
-    margin-bottom: 20px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
     line-height: 1.5;
   }
 
@@ -438,13 +449,13 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 11px;
   }
 
   .field-row--two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 10px;
   }
 
   @media (max-width: 480px) {
@@ -461,10 +472,10 @@
   /* ── Labels ── */
   .field-label {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--color-deep-teal);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .label-optional {
@@ -480,12 +491,12 @@
   /* ── Inputs / select / textarea ── */
   .field-input {
     font-family: var(--font-body);
-    font-size: 16px; /* 16px prevents iOS Safari auto-zoom */
+    font-size: 16px; /* 16px minimum prevents iOS Safari auto-zoom */
     color: var(--color-body);
     background-color: var(--color-white);
     border: 1px solid var(--color-sand);
     border-radius: 0;
-    padding: 14px 18px;
+    padding: 8px 11px;
     width: 100%;
     outline: none;
     transition: border-color 0.2s ease;
@@ -505,44 +516,44 @@
   .field-select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A7E84' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
+    background-position: right 10px center;
+    padding-right: 28px;
     cursor: pointer;
   }
 
   .field-textarea {
     resize: vertical;
-    min-height: 96px;
+    min-height: 60px;
     line-height: 1.6;
   }
 
   /* ── Field-level errors ── */
   .field-error {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 11px;
     color: #b91c1c;
-    margin-top: 4px;
+    margin-top: 3px;
     display: block;
-    min-height: 16px;
+    min-height: 14px;
     line-height: 1.4;
   }
 
   /* ── Consent checkbox ── */
   .field-group--consent {
-    gap: 4px;
+    gap: 3px;
   }
 
   .consent-label {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
   }
 
   .consent-checkbox {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     margin-top: 2px;
     cursor: pointer;
     accent-color: var(--color-aqua);
@@ -556,7 +567,7 @@
 
   .consent-text {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 11px;
     color: var(--color-body-light);
     line-height: 1.6;
   }
@@ -575,7 +586,10 @@
   /* ── Submit button ── */
   .form-submit {
     align-self: flex-start;
-    margin-top: 4px;
+    margin-top: 2px;
+    font-size: 13px !important;
+    padding: 10px 20px !important;
+    min-height: unset !important;
   }
 
   .form-submit:disabled {
