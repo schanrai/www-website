@@ -17,8 +17,10 @@ const { hero } = CONTENT;
     sizes="100vw"
   />
   <div class="hero-overlay">
-    <h1 class="hero-headline">{hero.tagline}</h1>
-    <p class="hero-supporting">{hero.supporting}</p>
+    <div class="hero-overlay-inner">
+      <h1 class="hero-headline">{hero.tagline}</h1>
+      <p class="hero-supporting">{hero.supporting}</p>
+    </div>
   </div>
 </section>
 
@@ -35,14 +37,14 @@ const { hero } = CONTENT;
     height: 100%;
     min-height: 400px;
     object-fit: cover;
-    object-position: center;
+    object-position: center 30%;
     display: block;
   }
 
   @media (min-width: 768px) {
     .hero {
-      height: 600px;
-      min-height: 600px;
+      height: clamp(400px, 45vw, 700px);
+      min-height: 400px;
     }
 
     .hero-photo {
@@ -61,6 +63,11 @@ const { hero } = CONTENT;
     right: 0;
     background: linear-gradient(0deg, rgba(0, 61, 74, 0.88) 0%, rgba(0, 61, 74, 0) 100%);
     padding: clamp(80px, 12vw, 140px) var(--section-px) clamp(32px, 4vw, 52px);
+  }
+
+  .hero-overlay-inner {
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   .hero-headline {
