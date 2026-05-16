@@ -171,3 +171,15 @@ const { faq } = CONTENT;
     padding-bottom: 16px;
   }
 </style>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((details) => {
+    details.querySelector('summary')?.addEventListener('click', () => {
+      if (!details.open) {
+        details.closest('.faq-col')
+          ?.querySelectorAll('details.faq-item[open]')
+          .forEach((other) => other.removeAttribute('open'));
+      }
+    });
+  });
+</script>
