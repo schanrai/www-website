@@ -10,6 +10,7 @@ import Services from '../components/Services.astro';
 import About from '../components/About.astro';
 import FAQ from '../components/FAQ.astro';
 import CTABand from '../components/CTABand.astro';
+import FacilityContactForm from '../components/FacilityContactForm.astro';
 import dividerImg from '../assets/images/underwater-dance.jpg';
 ---
 
@@ -44,6 +45,9 @@ import dividerImg from '../assets/images/underwater-dance.jpg';
     <FAQ />
     <CTABand />
   </main>
+
+  <!-- Inquiry modal — triggered by [data-open-inquiry] buttons sitewide -->
+  <FacilityContactForm />
 
   <Footer currentPage="/" />
 </BaseLayout>

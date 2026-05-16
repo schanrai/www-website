@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Terms & Conditions | Waterwoman Wellness"
+  description="Terms and Conditions for Waterwoman Wellness — how we collect, use, and protect your personal data."
+  canonicalUrl="https://www.waterwomanwellness.com/terms"
+>
+  <Header currentPage="/terms" />
+
+  <main class="terms-main">
+    <div class="terms-container">
+      <h1 class="terms-title">Terms &amp; Conditions</h1>
+      <p class="terms-effective">Effective date: May 2026</p>
+
+      <section class="terms-section">
+        <h2>Who We Are</h2>
+        <p>
+          Waterwoman Wellness is an aqua yoga and water fitness business operating in Broward and
+          North Miami, FL, offering therapeutic group and private classes for women navigating
+          chronic pain, menopause, and healthy aging. If you have any questions about these Terms
+          or how we handle your data, please contact us at
+          <a href="mailto:hello@waterwomanwellness.com">hello@waterwomanwellness.com</a>.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Information We Collect</h2>
+        <p>
+          When you submit an inquiry through our contact form, we collect the personal information
+          you provide, which may include your first name, last name, email address, phone number
+          (if given), your inquiry type (facility, individual, or other), and the content of your
+          message.
+        </p>
+        <p>
+          We only collect information that you voluntarily provide. You are not required to submit
+          the form to access or browse our website.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>How We Use Your Information</h2>
+        <p>
+          We use the information you provide for two purposes:
+        </p>
+        <p>
+          First, to respond to your inquiry — to answer your questions, provide information about
+          our services, and follow up as needed.
+        </p>
+        <p>
+          Second, where you have given explicit consent by ticking the consent checkbox on our
+          form, to send you relevant updates and marketing communications about our classes,
+          events, and offerings. We will only send you marketing communications if you have opted
+          in, and you may withdraw that consent at any time.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Legal Basis for Processing</h2>
+        <p>
+          We process your personal data on the basis of your consent. When you submit our contact
+          form and tick the consent checkbox, you are consenting to us processing your data for the
+          purposes described above. You have the right to withdraw this consent at any time by
+          contacting us at
+          <a href="mailto:hello@waterwomanwellness.com">hello@waterwomanwellness.com</a>.
+          Withdrawing consent will not affect the lawfulness of any processing we carried out
+          before your withdrawal.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>How Long We Keep Your Data</h2>
+        <p>
+          We retain your inquiry data for as long as is reasonably necessary to respond to your
+          message and any follow-up questions. If you have consented to marketing communications,
+          we will retain your contact details for that purpose until you withdraw your consent or
+          ask us to stop.
+        </p>
+        <p>
+          If you would like us to delete your data at any time, please email us and we will do so
+          promptly.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Your Rights</h2>
+        <p>
+          You have the right to access the personal data we hold about you, to request corrections
+          to any inaccuracies, and to request that we delete your data. You also have the right to
+          withdraw your consent to marketing communications at any time without affecting our ability
+          to respond to your original inquiry.
+        </p>
+        <p>
+          To exercise any of these rights, please email us at
+          <a href="mailto:hello@waterwomanwellness.com">hello@waterwomanwellness.com</a>.
+          We will respond within a reasonable timeframe.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Third-Party Services</h2>
+        <p>
+          We use <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a>
+          to process form submissions. When you submit our contact form, your data is transmitted to
+          and stored by Formspree in accordance with their own privacy policy, which is available at
+          <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">formspree.io/legal/privacy-policy</a>.
+          We encourage you to review Formspree's policy to understand how they handle your data.
+        </p>
+        <p>
+          Beyond Formspree, we do not sell, share, or otherwise transfer your personal data to any
+          other third parties.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Marketing Communications</h2>
+        <p>
+          If you have consented to receive updates and marketing communications from us, you can
+          unsubscribe at any time by clicking the unsubscribe link in any email we send you, or by
+          contacting us directly at
+          <a href="mailto:hello@waterwomanwellness.com">hello@waterwomanwellness.com</a>.
+          We will remove you from our list promptly and without question.
+        </p>
+      </section>
+
+      <section class="terms-section">
+        <h2>Changes to These Terms</h2>
+        <p>
+          We may update these Terms &amp; Conditions from time to time. Any changes will be
+          published on this page with an updated effective date. We encourage you to review this
+          page periodically.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer currentPage="/terms" />
+</BaseLayout>
+
+<style>
+  .terms-main {
+    background-color: var(--color-ivory);
+    padding: clamp(56px, 8vw, 100px) var(--section-px) clamp(72px, 10vw, 120px);
+  }
+
+  .terms-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .terms-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw + 0.5rem, 2.5rem);
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .terms-effective {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-body-light);
+    margin-bottom: 48px;
+  }
+
+  .terms-section {
+    margin-bottom: 40px;
+  }
+
+  .terms-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+
+  .terms-section p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--color-body);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .terms-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .terms-section a {
+    color: var(--color-aqua);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .terms-section a:hover {
+    color: var(--color-deep-teal);
+  }
+</style>

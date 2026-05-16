@@ -32,7 +32,7 @@ const { services } = CONTENT;
           <h3 class="card-title">{services.group.title}</h3>
           <p class="card-desc">{services.group.desc}</p>
           <p class="card-detail">{services.group.detail}</p>
-          <a href={services.group.ctaHref} class="card-cta">{services.group.cta}</a>
+          <button class="card-cta" data-open-inquiry type="button">{services.group.cta}</button>
         </div>
       </article>
 
@@ -52,7 +52,7 @@ const { services } = CONTENT;
           <h3 class="card-title">{services.priv.title}</h3>
           <p class="card-desc">{services.priv.desc}</p>
           <p class="card-detail">{services.priv.detail}</p>
-          <a href={services.priv.ctaHref} class="card-cta">{services.priv.cta}</a>
+          <button class="card-cta" data-open-inquiry type="button">{services.priv.cta}</button>
         </div>
       </article>
     </div>

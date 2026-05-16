@@ -1,0 +1,564 @@
+---
+// Self-contained inquiry modal — uses native <dialog> API
+// Formspree Ajax via CDN: https://unpkg.com/@formspree/ajax@1
+---
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<dialog id="inquiry-dialog" class="inquiry-dialog" aria-label="Make an Enquiry">
+  <div class="dialog-inner">
+    <button class="dialog-close" id="inquiry-close" aria-label="Close dialog">&#215;</button>
+
+    <div class="dialog-header">
+      <h2 class="dialog-title">Get in Touch</h2>
+      <p class="dialog-subtitle">
+        Fill in your details below and we'll be in touch soon.
+      </p>
+    </div>
+
+    <!-- Formspree success message -->
+    <div data-fs-success class="form-success" style="display:none">
+      <p>Thank you! We'll be in touch soon.</p>
+    </div>
+
+    <!-- Formspree form-level error -->
+    <p data-fs-error class="form-error" style="display:none">
+      Something went wrong. Please try again or email us at
+      <a href="mailto:hello@waterwomanwellness.com" class="error-link">hello@waterwomanwellness.com</a>.
+    </p>
+
+    <form id="facility-contact-form" novalidate>
+      <!-- First Name / Last Name — two-column on wider screens -->
+      <div class="field-row field-row--two-col">
+        <div class="field-group">
+          <label for="fcf-first-name" class="field-label">First Name <span class="required-star" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="fcf-first-name"
+            name="first-name"
+            class="field-input"
+            required
+            autocomplete="given-name"
+            data-fs-field
+          />
+          <span data-fs-error="first-name" class="field-error"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="fcf-last-name" class="field-label">Last Name <span class="required-star" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="fcf-last-name"
+            name="last-name"
+            class="field-input"
+            required
+            autocomplete="family-name"
+            data-fs-field
+          />
+          <span data-fs-error="last-name" class="field-error"></span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="field-group">
+        <label for="fcf-email" class="field-label">Email <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="email"
+          id="fcf-email"
+          name="email"
+          class="field-input"
+          required
+          autocomplete="email"
+          data-fs-field
+        />
+        <span data-fs-error="email" class="field-error"></span>
+      </div>
+
+      <!-- Phone (optional) -->
+      <div class="field-group">
+        <label for="fcf-phone" class="field-label">
+          Phone Number <span class="label-optional">(optional)</span>
+        </label>
+        <input
+          type="tel"
+          id="fcf-phone"
+          name="phone"
+          class="field-input"
+          autocomplete="tel"
+          data-fs-field
+        />
+        <span data-fs-error="phone" class="field-error"></span>
+      </div>
+
+      <!-- Contact type -->
+      <div class="field-group">
+        <label for="fcf-contact-type" class="field-label">I'm contacting as <span class="required-star" aria-hidden="true">*</span></label>
+        <select
+          id="fcf-contact-type"
+          name="contact-type"
+          class="field-input field-select"
+          required
+          data-fs-field
+        >
+          <option value="" disabled selected>Select one…</option>
+          <option value="A Facility">A Facility</option>
+          <option value="An Individual">An Individual</option>
+          <option value="Other">Other</option>
+        </select>
+        <span data-fs-error="contact-type" class="field-error"></span>
+      </div>
+
+      <!-- Message -->
+      <div class="field-group">
+        <label for="fcf-message" class="field-label">Inquiry <span class="required-star" aria-hidden="true">*</span></label>
+        <textarea
+          id="fcf-message"
+          name="message"
+          class="field-input field-textarea"
+          rows="4"
+          required
+          data-fs-field
+        ></textarea>
+        <span data-fs-error="message" class="field-error"></span>
+      </div>
+
+      <!-- Consent -->
+      <div class="field-group field-group--consent">
+        <label class="consent-label">
+          <input
+            type="checkbox"
+            name="consent"
+            class="consent-checkbox"
+            required
+            data-fs-field
+          />
+          <span class="consent-text">
+            I agree to the processing of my personal data in accordance with the
+            <a href="/terms" class="consent-link">Terms &amp; Conditions</a>.
+            I consent to receiving relevant updates and marketing communications from Waterwoman Wellness.
+          </span>
+        </label>
+        <span data-fs-error="consent" class="field-error"></span>
+      </div>
+
+      <button
+        type="submit"
+        class="cta-btn cta-btn--large form-submit"
+        data-fs-submit-btn
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  // ── Custom validation (runs before Formspree's submit handler) ──
+  const form = document.querySelector<HTMLFormElement>('#facility-contact-form')!;
+
+  const MESSAGES: Record<string, string> = {
+    'first-name': 'Please enter your first name.',
+    'last-name': 'Please enter your last name.',
+    email: 'Please enter a valid email address.',
+    'contact-type': 'Please select how you are contacting us.',
+    message: 'Please enter your inquiry.',
+    consent: 'You must agree to the terms to proceed.',
+  };
+
+  function getErrorSpan(field: HTMLElement): HTMLElement | null {
+    const name = (field as HTMLInputElement).name;
+    return form.querySelector(`[data-fs-error="${name}"]`);
+  }
+
+  function markInvalid(field: HTMLElement, message: string) {
+    field.classList.add('field-invalid');
+    const span = getErrorSpan(field);
+    if (span) span.textContent = message;
+  }
+
+  function markValid(field: HTMLElement) {
+    field.classList.remove('field-invalid');
+    const span = getErrorSpan(field);
+    if (span) span.textContent = '';
+  }
+
+  function validateForm(): boolean {
+    let valid = true;
+    const fields = form.querySelectorAll<HTMLElement>('[required]');
+    fields.forEach((field) => {
+      const el = field as HTMLInputElement;
+      const isEmpty =
+        el.type === 'checkbox' ? !el.checked : el.value.trim() === '';
+      const isInvalidEmail =
+        el.type === 'email' && !el.validity.valid && el.value.trim() !== '';
+
+      if (isEmpty || isInvalidEmail) {
+        markInvalid(el, MESSAGES[el.name] ?? 'This field is required.');
+        valid = false;
+      } else {
+        markValid(el);
+      }
+    });
+    return valid;
+  }
+
+  // Clear individual field errors as the user corrects them
+  form.querySelectorAll<HTMLElement>('[required]').forEach((field) => {
+    field.addEventListener('input', () => markValid(field));
+    field.addEventListener('change', () => markValid(field));
+  });
+
+  // Intercept submit with capture so this runs before Formspree's listener
+  form.addEventListener(
+    'submit',
+    (e) => {
+      if (!validateForm()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // Scroll first invalid field into view
+        const firstInvalid = form.querySelector<HTMLElement>('.field-invalid');
+        firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid?.focus();
+      }
+    },
+    { capture: true }
+  );
+
+  // ── Formspree Ajax init ──
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).formspree =
+    (window as any).formspree ||
+    function () {
+      ((window as any).formspree.q = (window as any).formspree.q || []).push(
+        arguments
+      );
+    };
+  (window as any).formspree('initForm', {
+    formElement: '#facility-contact-form',
+    formId: 'mqejzpvp',
+  });
+
+  const dialog = document.querySelector<HTMLDialogElement>('#inquiry-dialog')!;
+  const closeBtn = document.querySelector<HTMLButtonElement>('#inquiry-close')!;
+
+  function openDialog() {
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDialog() {
+    dialog.close();
+    document.body.style.overflow = '';
+  }
+
+  // Open on any [data-open-inquiry] click
+  document.querySelectorAll('[data-open-inquiry]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDialog();
+    });
+  });
+
+  // Close via × button
+  closeBtn.addEventListener('click', closeDialog);
+
+  // Close via backdrop click (outside the dialog box itself)
+  dialog.addEventListener('click', (e) => {
+    const rect = dialog.getBoundingClientRect();
+    const outside =
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom;
+    if (outside) closeDialog();
+  });
+
+  // Restore scroll when dialog is closed by any means (e.g. Escape key)
+  dialog.addEventListener('close', () => {
+    document.body.style.overflow = '';
+  });
+</script>
+
+<style>
+  /* ── Dialog (native <dialog>) ── */
+  .inquiry-dialog {
+    border: none;
+    padding: 0;
+    background-color: var(--color-ivory);
+    max-width: 560px;
+    width: calc(100% - 32px);
+    /* Browser auto-centers showModal() dialogs; constrain height for tall viewports */
+    max-height: 90vh;
+    overflow: hidden;
+  }
+
+  .inquiry-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Prevent the dialog from being wider than viewport on very small screens */
+  @media (max-width: 480px) {
+    .inquiry-dialog {
+      width: 100%;
+      max-width: 100%;
+      /* Slide up from the bottom on mobile */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      max-height: 92vh;
+      border-radius: 16px 16px 0 0;
+    }
+  }
+
+  .dialog-inner {
+    padding: 40px;
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  @media (max-width: 480px) {
+    .dialog-inner {
+      padding: 28px 20px 36px;
+      max-height: 92vh;
+    }
+  }
+
+  /* ── Close button ── */
+  .dialog-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--color-body-light);
+    transition: color 0.2s ease;
+    padding: 0;
+  }
+
+  .dialog-close:hover {
+    color: var(--color-deep-teal);
+  }
+
+  /* ── Header ── */
+  .dialog-header {
+    margin-bottom: 24px;
+    padding-right: 40px; /* keep clear of the close button */
+  }
+
+  .dialog-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw + 0.25rem, 1.5rem);
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .dialog-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-body-light);
+    line-height: 1.6;
+  }
+
+  /* ── Success message ── */
+  .form-success {
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .form-success p {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    line-height: 1.5;
+  }
+
+  .form-success p::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background-color: var(--color-aqua);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+
+  /* ── Form-level error ── */
+  .form-error {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #b91c1c;
+    background-color: rgba(185, 28, 28, 0.07);
+    border: 1px solid rgba(185, 28, 28, 0.18);
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .error-link {
+    color: #b91c1c;
+    text-decoration: underline;
+  }
+
+  /* ── Form ── */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .field-row--two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .field-row--two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Labels ── */
+  .field-label {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    margin-bottom: 6px;
+  }
+
+  .label-optional {
+    font-weight: 400;
+    color: var(--color-body-light);
+  }
+
+  .required-star {
+    color: #b91c1c;
+    font-weight: 700;
+  }
+
+  /* ── Inputs / select / textarea ── */
+  .field-input {
+    font-family: var(--font-body);
+    font-size: 16px; /* 16px prevents iOS Safari auto-zoom */
+    color: var(--color-body);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand);
+    border-radius: 0;
+    padding: 14px 18px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .field-input:focus {
+    border-color: var(--color-aqua);
+  }
+
+  .field-input.field-invalid {
+    border-color: #b91c1c;
+  }
+
+  /* Chevron for select */
+  .field-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A7E84' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .field-textarea {
+    resize: vertical;
+    min-height: 96px;
+    line-height: 1.6;
+  }
+
+  /* ── Field-level errors ── */
+  .field-error {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: #b91c1c;
+    margin-top: 4px;
+    display: block;
+    min-height: 16px;
+    line-height: 1.4;
+  }
+
+  /* ── Consent checkbox ── */
+  .field-group--consent {
+    gap: 4px;
+  }
+
+  .consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .consent-checkbox {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--color-aqua);
+    outline-color: #b91c1c;
+  }
+
+  .consent-checkbox.field-invalid {
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+  }
+
+  .consent-text {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-body-light);
+    line-height: 1.6;
+  }
+
+  .consent-link {
+    color: var(--color-aqua);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .consent-link:hover {
+    color: var(--color-deep-teal);
+  }
+
+  /* ── Submit button ── */
+  .form-submit {
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .form-submit:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+</style>
