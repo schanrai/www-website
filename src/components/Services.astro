@@ -154,13 +154,19 @@ const { services } = CONTENT;
     color: var(--color-gold);
     letter-spacing: 0.04em;
     text-decoration: none;
-    min-height: 44px;
     display: inline-flex;
     align-items: center;
-    transition: opacity 0.2s ease;
+    gap: 6px;
+    padding: 11px 22px;
+    border: 1.5px solid var(--color-gold);
+    border-radius: 100px;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
 
   .card-cta:hover {
-    opacity: 0.75;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
   }
 </style>
