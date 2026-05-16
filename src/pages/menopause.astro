@@ -11,8 +11,6 @@ import { MENOPAUSE } from '../content/menopause';
 import heroImg from '../assets/images/class-noodles.png';
 import bowImg from '../assets/images/underwater-bow.jpg';
 import dividerImg from '../assets/images/underwater-dance.jpg';
-import watsuImg from '../assets/images/aerial-watsu.png';
-
 const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand } = MENOPAUSE;
 ---
 
@@ -80,41 +78,7 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
       </div>
     </section>
 
-    <!-- ── 4. WHY WATER EXERCISE WORKS ── -->
-    <section class="why-water">
-      <div class="why-water-inner">
-        <div class="why-water-content">
-          <div class="why-water-text">
-            <h2 class="section-title">{whyWater.label}</h2>
-            <WaveLine width={100} height={12} class="wave-sep" />
-            <p class="why-water-intro">{whyWater.intro}</p>
-            <ul class="benefit-list" role="list">
-              {whyWater.benefits.map((b) => (
-                <li class="benefit-item">
-                  <span class="benefit-dot" aria-hidden="true"></span>
-                  <p class="benefit-text">
-                    <strong class="benefit-bold">{b.bold}</strong>
-                    <span class="benefit-desc"> — {b.text}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class="why-water-photo-wrap">
-            <Image
-              src={watsuImg}
-              alt="One-on-one aquatic therapy session"
-              class="why-water-photo"
-              widths={[400, 700]}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 5. IMAGE DIVIDER ── -->
+    <!-- ── 4. IMAGE DIVIDER ── -->
     <div class="image-divider">
       <Image
         src={dividerImg}
@@ -126,6 +90,26 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
         loading="lazy"
       />
     </div>
+
+    <!-- ── 5. WHY WATER EXERCISE WORKS ── -->
+    <section class="why-water">
+      <div class="why-water-inner">
+        <h2 class="section-title">{whyWater.label}</h2>
+        <WaveLine width={100} height={12} class="wave-sep" />
+        <p class="why-water-intro">{whyWater.intro}</p>
+        <ul class="benefit-list" role="list">
+          {whyWater.benefits.map((b) => (
+            <li class="benefit-item">
+              <span class="benefit-dot" aria-hidden="true"></span>
+              <p class="benefit-text">
+                <strong class="benefit-bold">{b.bold}</strong>
+                <span class="benefit-desc"> — {b.text}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
     <!-- ── 6. WHAT TO EXPECT ── -->
     <section class="expect">
@@ -345,36 +329,17 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
 
   /* ── WHY WATER ── */
   .why-water {
-    background-color: var(--color-ivory);
+    background-color: rgba(188, 231, 228, 0.25);
     padding: var(--section-py) var(--section-px);
   }
 
   .why-water-inner {
     max-width: 1440px;
     margin: 0 auto;
-  }
-
-  .why-water-content {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-  }
-
-  @media (min-width: 768px) {
-    .why-water-content {
-      flex-direction: row;
-      gap: 60px;
-      align-items: flex-start;
-    }
-
-    .why-water-text {
-      flex: 1;
-    }
-
-    .why-water-photo-wrap {
-      flex: 0 0 38%;
-      max-width: 440px;
-    }
+    align-items: center;
+    text-align: center;
   }
 
   .why-water-intro {
@@ -382,19 +347,24 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
     font-size: clamp(0.9375rem, 1vw + 0.5rem, 1rem);
     color: var(--color-body);
     line-height: 1.7;
-    margin-bottom: 28px;
+    max-width: 680px;
+    margin-bottom: 48px;
+    text-align: center;
   }
 
   .benefit-list {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
+    max-width: 720px;
+    width: 100%;
     list-style: none;
+    text-align: left;
   }
 
   .benefit-item {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     align-items: flex-start;
   }
 
@@ -417,14 +387,6 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
   .benefit-bold {
     font-weight: 600;
     color: var(--color-deep-teal);
-  }
-
-  .why-water-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
   }
 
   /* ── IMAGE DIVIDER ── */
