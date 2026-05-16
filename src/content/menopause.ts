@@ -3,6 +3,11 @@ export interface MenoBenefit {
   text: string;
 }
 
+export interface MenoFaq {
+  q: string;
+  a: string;
+}
+
 export const MENOPAUSE = {
   meta: {
     title: 'Aqua Yoga for Menopause & Perimenopause | Broward & North Miami',
@@ -67,9 +72,22 @@ export const MENOPAUSE = {
 
   whatToExpect: {
     label: 'What to Expect',
-    body: 'Small group classes and one-on-one private sessions, fully adaptive to your body and your symptoms on any given day. No prior yoga experience required. No swimming ability required. Classes are held in chest-depth water \u2014 you will never be asked to go underwater.',
-    growth:
+    intro:
       'As your strength, flexibility and confidence build, the practice builds with you.',
+    faqs: [
+      {
+        q: 'What do classes look like?',
+        a: 'Small group classes and one-on-one private sessions, fully adaptive to your body and your symptoms on any given day.',
+      },
+      {
+        q: 'Do I need yoga experience?',
+        a: 'None at all. Every session is designed to meet you exactly where you are.',
+      },
+      {
+        q: 'Do I need to be able to swim?',
+        a: 'No swimming ability is required. Classes are held in chest-depth water \u2014 you will never be asked to go underwater.',
+      },
+    ] satisfies MenoFaq[],
     location:
       'Serving Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
     launch: 'Classes begin August 1st, 2026.',
@@ -79,7 +97,7 @@ export const MENOPAUSE = {
   meetSushi: {
     label: 'Meet Your Instructor',
     intro:
-      'Sushi Chanrai is a certified RYT-200 yoga instructor and certified Aqua Yoga therapist. She created Water Woman Wellness for women who are ready to move again \u2014 but need a gentler, smarter way in.',
+      'Sushi Chanrai is a certified RYT-200 yoga instructor and certified Aqua Yoga therapist. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
     linkText: 'Read Sushi\u2019s full story \u2192',
     linkHref: '/#about',
   },
