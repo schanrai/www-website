@@ -44,7 +44,10 @@ const { currentPage = '/' } = Astro.props;
 
     <!-- Bottom row -->
     <div class="footer-bottom">
-      <p class="footer-legal">© 2026 Water Woman Wellness. All rights reserved.</p>
+      <div class="footer-legal-group">
+        <p class="footer-legal">© 2026 Water Woman Wellness. All rights reserved.</p>
+        <a href="/terms" class="footer-legal-link">Terms &amp; Conditions</a>
+      </div>
       <p class="footer-brand">A Chikitsa LLC brand</p>
     </div>
   </div>
@@ -157,6 +160,26 @@ const { currentPage = '/' } = Astro.props;
     font-family: var(--font-body);
     font-size: 12px;
     color: var(--color-body-light);
+  }
+
+  .footer-legal-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-legal-link {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-body-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-legal-link:hover {
+    opacity: 0.75;
   }
 
   @media (max-width: 600px) {
