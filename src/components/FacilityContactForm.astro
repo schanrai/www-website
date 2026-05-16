@@ -3,7 +3,6 @@
 // Formspree Ajax via CDN: https://unpkg.com/@formspree/ajax@1
 ---
 
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <dialog id="inquiry-dialog" class="inquiry-dialog" aria-label="Make an Enquiry">
   <div class="dialog-inner">
@@ -208,34 +207,47 @@
     field.addEventListener('change', () => markValid(field));
   });
 
-  // Intercept submit with capture so this runs before Formspree's listener
-  form.addEventListener(
-    'submit',
-    (e) => {
-      if (!validateForm()) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        // Scroll first invalid field into view
-        const firstInvalid = form.querySelector<HTMLElement>('.field-invalid');
-        firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstInvalid?.focus();
-      }
-    },
-    { capture: true }
-  );
+  const successEl = document.querySelector<HTMLElement>('.form-success')!;
+  const errorEl = document.querySelector<HTMLElement>('.form-error')!;
+  const submitBtn = form.querySelector<HTMLButtonElement>('[data-fs-submit-btn]')!;
 
-  // ── Formspree Ajax init ──
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (window as any).formspree =
-    (window as any).formspree ||
-    function () {
-      ((window as any).formspree.q = (window as any).formspree.q || []).push(
-        arguments
-      );
-    };
-  (window as any).formspree('initForm', {
-    formElement: '#facility-contact-form',
-    formId: 'mqejzpvp',
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      const firstInvalid = form.querySelector<HTMLElement>('.field-invalid');
+      firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstInvalid?.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/mqejzpvp', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg = data?.errors?.[0]?.message ?? 'Submission failed.';
+        errorEl.textContent = msg;
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    } catch {
+      errorEl.textContent = 'Network error. Please try again or email us directly.';
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
   });
 
   const dialog = document.querySelector<HTMLDialogElement>('#inquiry-dialog')!;
@@ -273,9 +285,18 @@
     if (outside) closeDialog();
   });
 
-  // Restore scroll when dialog is closed by any means (e.g. Escape key)
+  // Restore scroll and reset form state when dialog closes (Escape key, × or backdrop)
   dialog.addEventListener('close', () => {
     document.body.style.overflow = '';
+    // Reset to initial state for next opening
+    form.reset();
+    form.style.display = '';
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+    form.querySelectorAll<HTMLElement>('.field-invalid').forEach((el) => markValid(el));
   });
 </script>
 
