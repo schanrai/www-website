@@ -13,7 +13,7 @@ export const MENOPAUSE = {
 
   hero: {
     headline:
-      'Gentle aqua yoga and water-based movement for menopausal and perimenopausal women in Broward, Sunny Isles, Aventura and North Miami.',
+      'Gentle aqua yoga and water-based movement for menopausal and perimenopausal women.',
     tagline: 'Gentle enough for today. Strong enough for tomorrow.',
   },
 
