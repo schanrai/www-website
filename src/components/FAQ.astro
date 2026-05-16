@@ -8,13 +8,13 @@ const { faq } = CONTENT;
 <section class="faq">
   <div class="faq-inner">
     <div class="faq-header">
-      <SectionLabel color="var(--color-deep-teal)">{faq.label}</SectionLabel>
+      <SectionLabel as="h2" color="var(--color-deep-teal)">{faq.label}</SectionLabel>
     </div>
 
     <div class="faq-columns">
       <!-- For Individuals -->
       <div class="faq-col">
-        <h2 class="faq-col-heading">{faq.individual.heading}</h2>
+        <h3 class="faq-col-heading">{faq.individual.heading}</h3>
         {faq.individual.items.map((item, i) => (
           <details class="faq-item" open={i === 0 || undefined}>
             <summary class="faq-question">
@@ -28,7 +28,7 @@ const { faq } = CONTENT;
 
       <!-- For Facilities -->
       <div class="faq-col">
-        <h2 class="faq-col-heading">{faq.facility.heading}</h2>
+        <h3 class="faq-col-heading">{faq.facility.heading}</h3>
         {faq.facility.items.map((item, i) => (
           <details class="faq-item" open={i === 0 || undefined}>
             <summary class="faq-question">
@@ -62,6 +62,16 @@ const { faq } = CONTENT;
     margin-bottom: 48px;
   }
 
+  .faq-header :global(.section-label) {
+    font-size: clamp(1.625rem, 3vw + 0.5rem, 2.25rem);
+    font-weight: 600;
+    color: var(--color-deep-teal);
+    line-height: 1.15;
+    letter-spacing: normal;
+    text-transform: none;
+    margin-bottom: 0;
+  }
+
   .faq-columns {
     display: flex;
     flex-direction: column;
@@ -81,7 +91,7 @@ const { faq } = CONTENT;
 
   .faq-col-heading {
     font-family: var(--font-heading);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--color-deep-teal);
     margin-bottom: 16px;

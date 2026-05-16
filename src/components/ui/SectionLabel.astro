@@ -1,12 +1,13 @@
 ---
 interface Props {
+  as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4';
   color?: string;
   class?: string;
 }
-const { color, class: className = '' } = Astro.props;
+const { as: Tag = 'p', color, class: className = '' } = Astro.props;
 const style = color ? `color: ${color}` : '';
 ---
 
-<p class:list={['section-label', className]} style={style}>
+<Tag class:list={['section-label', className]} style={style}>
   <slot />
-</p>
+</Tag>
