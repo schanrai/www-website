@@ -87,6 +87,26 @@ export const MENOPAUSE = {
         q: 'Do I need to be able to swim?',
         a: 'No swimming ability is required. Classes are held in chest-depth water \u2014 you will never be asked to go underwater.',
       },
+      {
+        q: 'How long are the sessions?',
+        a: 'Group classes run for approximately 60 minutes. Private sessions can be tailored to your needs and schedule.',
+      },
+      {
+        q: 'Where do classes take place?',
+        a: 'Sessions can take place either at my pool in Hollywood, Broward, or at your own or your facility\u2019s pool.',
+      },
+      {
+        q: 'What if I\u2019m having a low energy day?',
+        a: 'Every class is designed to meet you where you are. On difficult days, the practice scales back with you \u2014 gentle floating, supported stretches, and breathwork are always available.',
+      },
+      {
+        q: 'Will I really build strength?',
+        a: 'Yes, absolutely. Water is denser than air. Holding and moving through yoga poses in water forces your muscles to work in multiple directions, turning a gentle flow into effective strength training.',
+      },
+      {
+        q: 'Will I get my hair wet?',
+        a: 'Not necessarily. Getting your hair wet is entirely optional.',
+      },
     ] satisfies MenoFaq[],
     location:
       'Serving Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
