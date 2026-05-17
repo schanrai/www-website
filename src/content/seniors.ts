@@ -31,9 +31,8 @@ export const SENIORS = {
     label: 'What Is Aqua Yoga for Seniors?',
     paragraphs: [
       'If you\u2019ve been searching for pool exercises for seniors, water exercises for older adults, or aquatic exercise classes near you \u2014 aqua yoga is the answer you didn\u2019t know you were looking for.',
-      'Unlike land-based yoga, aqua yoga takes place in waist to chest-depth water where buoyancy replaces the need for a mat, blocks, or straps. The water itself becomes your support system. Poses that feel impossible or painful on land become accessible, comfortable, and even enjoyable in the water. There is no pressure on your wrists, knees, or spine from getting up and down off the floor \u2014 a significant barrier for many older adults practicing traditional yoga (including myself).',
-      'Props like pool noodles and kickboards may be used throughout class to provide additional support, stability, and balance if needed \u2014 allowing you to work at your own level regardless of your current fitness or mobility.',
-      'Unlike standard pool exercise routines, aqua yoga combines the benefits of water-based movement with the mindfulness, breathwork, and therapeutic principles of yoga. The result is a practice that doesn\u2019t just keep you moving \u2014 it builds genuine strength, flexibility, balance, and body awareness in a way that generic pool workouts simply don\u2019t. No Silver Sneakers program. No water aerobics routine. Something more intentional, more therapeutic, and more effective for your specific body and health history.',
+      'Unlike land-based yoga, aqua yoga takes place in chest-depth water where buoyancy becomes your support system. Poses that feel impossible or painful on land become accessible and comfortable in the water. Props like pool noodles and kickboards provide additional support, stability, and balance \u2014 allowing you to work at your own level regardless of your current fitness or mobility.',
+      'No Silver Sneakers program. No water aerobics routine. Something more intentional, more therapeutic, and more effective for your specific body and health history.',
     ],
   },
 
@@ -92,6 +91,14 @@ export const SENIORS = {
       {
         q: 'Where do classes take place?',
         a: 'Sessions can take place either at my pool in Hollywood, Broward, or at your own or your facility\u2019s pool.',
+      },
+      {
+        q: 'I have trouble getting up and down from the floor \u2014 is this suitable for me?',
+        a: 'Absolutely. This is one of the most common barriers older adults face with traditional yoga \u2014 and it\u2019s exactly what aqua yoga solves. There is no mat, no floor, and no getting up and down. The entire practice takes place standing or supported in the water, so pressure on your wrists, knees, and spine is removed entirely.',
+      },
+      {
+        q: 'How is aqua yoga different from water aerobics?',
+        a: 'Water aerobics is a cardio workout. Aqua yoga integrates the therapeutic principles of yoga \u2014 breathwork, mindful movement, and body awareness \u2014 with the physical benefits of water-based exercise. The result builds genuine strength, flexibility, and balance in a way that a generic pool workout simply doesn\u2019t.',
       },
     ] satisfies SeniorFaq[],
     location:
