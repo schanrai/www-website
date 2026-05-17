@@ -18,6 +18,7 @@ export const CONTENT = {
     supporting: 'Restore Strength. Move with Ease.',
     subheading:
       'Mindful, clinically-supported, low-impact aqua yoga for women navigating chronic pain, menopause, and healthy aging.',
+    lead: 'Whether you\u2019re navigating menopause, managing chronic joint pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
     location:
       'Serving all areas between Hollywood, Fort Lauderdale, Aventura, Sunny Isles and North Miami.',
     launch: 'Classes begin August 1st 2026.',

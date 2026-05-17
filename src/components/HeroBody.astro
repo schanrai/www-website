@@ -9,6 +9,7 @@ const { hero } = CONTENT;
   <div class="hero-body-inner">
     <div class="hero-body-left">
       <p class="hero-subheading">{hero.subheading}</p>
+      <p class="hero-lead">{hero.lead}</p>
       <p class="hero-location">{hero.location}</p>
       <LaunchPill text={hero.launch} />
     </div>
@@ -55,9 +56,18 @@ const { hero } = CONTENT;
   .hero-subheading {
     font-family: var(--font-body);
     font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
-    color: var(--color-body);
+    font-weight: 600;
+    color: var(--color-deep-teal);
     line-height: 1.7;
     margin-bottom: 16px;
+  }
+
+  .hero-lead {
+    font-family: var(--font-body);
+    font-size: clamp(0.9375rem, 1vw + 0.5rem, 1rem);
+    color: var(--color-body);
+    line-height: 1.7;
+    margin-bottom: 20px;
   }
 
   .hero-location {
