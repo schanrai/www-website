@@ -144,8 +144,12 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
 
     <!-- ── 8. CTA BAND ── -->
     <section class="cta-band">
-      <WaveLine width={900} height={24} class="wave-top" />
-      <WaveLine width={700} height={18} class="wave-bottom" />
+      <svg class="wave-top" viewBox="0 0 900 24" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <path d="M0 12 C72 2.88,153 2.88,225 12 S378 21.12,450 12 S603 2.88,675 12 S828 21.12,900 12" stroke="#62C7C7" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+      </svg>
+      <svg class="wave-bottom" viewBox="0 0 700 18" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <path d="M0 9 C44.8 2.16,100.8 2.16,140 9 S235.2 15.84,280 9 S375.2 2.16,420 9 S515.2 15.84,560 9 S655.2 2.16,700 9" stroke="#62C7C7" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+      </svg>
       <div class="cta-band-inner">
         <h2 class="cta-band-title">{ctaBand.title}</h2>
         <p class="cta-band-body">{ctaBand.body}</p>
@@ -572,22 +576,25 @@ const { meta, hero, heroBody, whatIs, whyWater, whatToExpect, meetSushi, ctaBand
     z-index: 1;
   }
 
-  .wave-top {
+  .wave-top,
+  .wave-bottom {
     position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.25;
+    left: 0;
+    width: 100%;
     pointer-events: none;
+    display: block;
+  }
+
+  .wave-top {
+    top: 14px;
+    height: 26px;
+    opacity: 0.3;
   }
 
   .wave-bottom {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.15;
-    pointer-events: none;
+    top: 38px;
+    height: 20px;
+    opacity: 0.2;
   }
 
   .cta-band-title {
