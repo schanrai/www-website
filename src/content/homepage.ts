@@ -83,9 +83,10 @@ export const CONTENT = {
     title: 'Meet Sushi',
     hook: 'I know what it feels like when your body stops cooperating.',
     story: [
-      'For years I navigated daily chronic pain, inflammation, and significant loss of mobility \u2014 living with hypermobility, autoimmune conditions including MCAS, Chronic Venous Insufficiency, and Arthritis, and the shifting terrain of menopause.',
-      'I had been a yogi for over 15 years, practicing many different styles including Iyengar, Ashtanga and Kundalini, but was drawn particularly to Anusara Yoga upon discovering it just before I moved to Florida in 2014 from the UK.',
-      'Having grown up in a Hindu household, yogic philosophy and teachings were simply part of my daily life. Yoga was not simply something I did \u2014 it was how I understood myself and my body.',
+      'For years I navigated daily chronic pain, inflammation, and significant loss of mobility \u2014 living with hypermobility and autoimmune conditions which worsened over time and the shifting terrain of menopause.',
+
+      'I had been a yogi for over 15 years, practicing many different styles including Iyengar, Ashtanga and Kundalini - but was drawn particularly to Anusara Yoga upon discovering it just before I moved to Florida from the UK.',
+      'Having grown up in a Hindu household, yogic philosophy was simply part of my daily life. Yoga was not simply something I did \u2014 it was how I understood myself and my body.',
       'Which made it even more devastating when, as my conditions worsened, even my practice could no longer help me navigate the inflammation, the pain, and the loss of mobility. Land-based movement had become inaccessible to me.',
     ],
     turning: 'Getting back into the pool changed everything.',
