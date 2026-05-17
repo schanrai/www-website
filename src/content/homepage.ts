@@ -20,7 +20,7 @@ export const CONTENT = {
       'Mindful, clinically-supported, low-impact aqua yoga for women navigating chronic pain, menopause, and healthy aging.',
     lead: 'Whether you\u2019re navigating menopause, managing chronic joint pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
     location:
-      'Serving all areas between Hollywood, Fort Lauderdale, Aventura, Sunny Isles and North Miami.',
+      'Serving all areas in and between Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
     launch: 'Classes begin August 1st 2026.',
     cta: 'Make an Enquiry',
     ctaHref: 'mailto:hello@waterwomanwellness.com',
