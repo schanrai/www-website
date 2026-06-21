@@ -21,7 +21,7 @@ export const CONTENT = {
     lead: 'Whether you\u2019re navigating menopause, managing chronic joint pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
     location:
       'Serving all areas in and between Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
-    launch: 'Classes begin August 1st 2026.',
+    launch: 'Classes begin September 1st 2026.',
     cta: 'Make an Enquiry',
     ctaHref: 'mailto:hello@waterwomanwellness.com',
   },
@@ -99,7 +99,7 @@ export const CONTENT = {
     closing:
       'I created Water Woman Wellness for women who are where I was \u2014 ready to move again, but needing a gentler, smarter way in.',
     signature: 'Sushi Chanrai',
-    certifications: ['RYT-200, Yoga Alliance', 'Aqua Yoga Certification, Yoga Alliance'],
+    certifications: ['RYT-200, Yoga Alliance', 'Aqua Yoga Certification, Yoga Alliance, Trained by Christa Fairbrother'],
     specialization: ['Therapeutic Yoga Training, Soma Yoga Institute'],
   },
 
@@ -167,7 +167,7 @@ export const CONTENT = {
 
   ctaBand: {
     title: 'Ready to Move with Freedom Again?',
-    body: 'Classes begin August 1st 2026. Express your interest and we\u2019ll be in touch.',
+    body: 'Classes begin September 1st 2026. Express your interest and we\u2019ll be in touch.',
     cta: 'Make an Enquiry',
     ctaHref: 'mailto:hello@waterwomanwellness.com',
   },

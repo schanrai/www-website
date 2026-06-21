@@ -103,7 +103,7 @@ export const SENIORS = {
     ] satisfies SeniorFaq[],
     location:
       'Serving all areas in and between Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
-    launch: 'Classes begin August 1st, 2026.',
+    launch: 'Classes begin September 1st, 2026.',
     cta: 'Make an Enquiry',
   },
 
@@ -117,7 +117,7 @@ export const SENIORS = {
 
   ctaBand: {
     title: 'Ready to redefine what healthy aging looks like?',
-    body: 'Classes begin August 1st 2026. Express your interest and we\u2019ll be in touch.',
+    body: 'Classes begin September 1st 2026. Express your interest and we\u2019ll be in touch.',
     cta: 'Make an Enquiry',
   },
 } as const;

@@ -110,7 +110,7 @@ export const MENOPAUSE = {
     ] satisfies MenoFaq[],
     location:
       'Serving Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
-    launch: 'Classes begin August 1st, 2026.',
+    launch: 'Classes begin September 1st, 2026.',
     cta: 'Make an Enquiry',
   },
 
@@ -124,7 +124,7 @@ export const MENOPAUSE = {
 
   ctaBand: {
     title: 'Ready to Move Through Menopause with Confidence?',
-    body: 'Classes begin August 1st 2026. Express your interest and we\u2019ll be in touch.',
+    body: 'Classes begin September 1st 2026. Express your interest and we\u2019ll be in touch.',
     cta: 'Make an Enquiry',
   },
 } as const;
