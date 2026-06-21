@@ -107,6 +107,74 @@
         <span data-fs-error="contact-type" class="field-error"></span>
       </div>
 
+      <!-- Preferred class location -->
+      <fieldset class="field-group field-group--radio">
+        <legend class="field-label">
+          Preferred class location <span class="required-star" aria-hidden="true">*</span>
+        </legend>
+        <div class="radio-group" data-class-location-group>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="class-location"
+              value="Sushi's class location"
+              class="radio-input"
+              data-fs-field
+            />
+            <span>Sushi&rsquo;s class location (Hollywood, Broward County)</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="class-location"
+              value="My pool / facility"
+              class="radio-input"
+              data-fs-field
+              data-class-location-needs-details
+            />
+            <span>My pool / facility</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="class-location"
+              value="Assisted living facility"
+              class="radio-input"
+              data-fs-field
+            />
+            <span>Assisted living facility</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="class-location"
+              value="Other"
+              class="radio-input"
+              data-fs-field
+              data-class-location-needs-details
+            />
+            <span>Other</span>
+          </label>
+        </div>
+        <span data-fs-error="class-location" class="field-error"></span>
+      </fieldset>
+
+      <!-- Location details (shown for My pool / facility or Other) -->
+      <div class="field-group field-group--conditional" id="fcf-class-location-details-wrap" hidden>
+        <label for="fcf-class-location-details" class="field-label">
+          Location details <span class="required-star" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="fcf-class-location-details"
+          name="class-location-details"
+          class="field-input"
+          placeholder="Address, city, or access details (e.g. pool depth, entry)"
+          data-fs-field
+        />
+        <span data-fs-error="class-location-details" class="field-error"></span>
+      </div>
+
       <!-- Message -->
       <div class="field-group">
         <label for="fcf-message" class="field-label">Inquiry <span class="required-star" aria-hidden="true">*</span></label>
@@ -160,9 +228,54 @@
     'last-name': 'Please enter your last name.',
     email: 'Please enter your email address.',
     'contact-type': 'Please select how you are contacting us.',
+    'class-location': 'Please select a preferred class location.',
+    'class-location-details': 'Please provide the address or access details for this location.',
     message: 'Please enter your inquiry.',
     consent: 'You must agree to the terms to proceed.',
   };
+
+  const classLocationGroup = form.querySelector<HTMLElement>('[data-class-location-group]')!;
+  const classLocationRadios = form.querySelectorAll<HTMLInputElement>('input[name="class-location"]');
+  const classLocationDetailsWrap = form.querySelector<HTMLElement>('#fcf-class-location-details-wrap')!;
+  const classLocationDetailsField = form.querySelector<HTMLInputElement>('#fcf-class-location-details')!;
+
+  function classLocationNeedsDetails(): boolean {
+    const selected = form.querySelector<HTMLInputElement>('input[name="class-location"]:checked');
+    return selected?.hasAttribute('data-class-location-needs-details') ?? false;
+  }
+
+  function updateClassLocationDetailsVisibility() {
+    const show = classLocationNeedsDetails();
+    classLocationDetailsWrap.hidden = !show;
+    if (!show) {
+      classLocationDetailsField.value = '';
+      markValid(classLocationDetailsField);
+    }
+  }
+
+  function validateClassLocation(): boolean {
+    const selected = form.querySelector<HTMLInputElement>('input[name="class-location"]:checked');
+    const span = form.querySelector('[data-fs-error="class-location"]');
+    if (!selected) {
+      classLocationGroup.classList.add('radio-group--invalid');
+      if (span) span.textContent = MESSAGES['class-location'];
+      return false;
+    }
+    classLocationGroup.classList.remove('radio-group--invalid');
+    if (span) span.textContent = '';
+    return true;
+  }
+
+  function validateClassLocationDetails(): boolean {
+    if (!classLocationNeedsDetails()) return true;
+    const val = classLocationDetailsField.value.trim();
+    if (val === '') {
+      markInvalid(classLocationDetailsField, MESSAGES['class-location-details']);
+      return false;
+    }
+    markValid(classLocationDetailsField);
+    return true;
+  }
 
   function getErrorSpan(field: HTMLElement): HTMLElement | null {
     const name = (field as HTMLInputElement).name;
@@ -181,8 +294,19 @@
     if (span) span.textContent = '';
   }
 
+  classLocationRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      classLocationGroup.classList.remove('radio-group--invalid');
+      const span = form.querySelector('[data-fs-error="class-location"]');
+      if (span) span.textContent = '';
+      updateClassLocationDetailsVisibility();
+    });
+  });
+
+  classLocationDetailsField.addEventListener('input', () => markValid(classLocationDetailsField));
+
   function validateForm(): boolean {
-    let valid = true;
+    let valid = validateClassLocation() && validateClassLocationDetails();
     const fields = form.querySelectorAll<HTMLElement>('[required]');
     fields.forEach((field) => {
       const el = field as HTMLInputElement;
@@ -309,6 +433,11 @@
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Message';
     form.querySelectorAll<HTMLElement>('.field-invalid').forEach((el) => markValid(el));
+    classLocationGroup.classList.remove('radio-group--invalid');
+    const classLocationError = form.querySelector('[data-fs-error="class-location"]');
+    if (classLocationError) classLocationError.textContent = '';
+    classLocationDetailsWrap.hidden = true;
+    classLocationDetailsField.value = '';
   });
 </script>
 
@@ -467,6 +596,52 @@
   .field-group {
     display: flex;
     flex-direction: column;
+  }
+
+  .field-group--radio {
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .field-group--radio .field-label {
+    margin-bottom: 6px;
+  }
+
+  .field-group--conditional[hidden] {
+    display: none;
+  }
+
+  /* ── Radio group ── */
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .radio-group--invalid .radio-label {
+    color: #b91c1c;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-body);
+    line-height: 1.5;
+  }
+
+  .radio-input {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 3px;
+    cursor: pointer;
+    accent-color: var(--color-aqua);
   }
 
   /* ── Labels ── */
