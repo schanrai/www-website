@@ -12,6 +12,14 @@ export interface FaqItem {
 }
 
 export const CONTENT = {
+  meta: {
+    title: 'Therapeutic Aqua Yoga for Women | Broward & North Miami',
+    description:
+      'Therapeutic aqua yoga for women navigating chronic pain, menopause and healthy aging. Group and private classes in Broward & North Miami. September 2026.',
+    canonicalUrl: 'https://www.waterwomanwellness.com',
+    ogImage: '/og-image.jpg',
+  },
+
   hero: {
     tagline:
       'Mindful water-based therapy for women ready to move with freedom again.',
@@ -118,7 +126,7 @@ export const CONTENT = {
         },
         {
           q: 'Is aqua yoga suitable for my condition?',
-          a: 'Aqua yoga is specifically designed for people living with chronic pain, hypermobility, arthritis, autoimmune conditions, and menopause-related symptoms.',
+          a: 'Aqua yoga is gentle enough to be practiced by people living with chronic pain, autoimmune conditions, and menopause-related symptoms — as well as older adults and anyone who finds land-based movement difficult.',
         },
         {
           q: 'Where do private sessions take place?',

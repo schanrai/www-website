@@ -14,6 +14,7 @@ export const MENOPAUSE = {
     description:
       'Gentle aqua yoga and low impact water exercise for menopausal and perimenopausal women. Build strength, flexibility and balance. Serving Broward & North Miami.',
     canonicalUrl: 'https://www.waterwomanwellness.com/menopause',
+    ogImage: '/og-menopause.jpg',
   },
 
   hero: {

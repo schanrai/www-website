@@ -90,7 +90,7 @@ const CONTENT = {
     individual: [
     { q: 'Do I need to know how to swim?', a: 'No. Classes are practiced in chest-depth water. You will never be asked to go underwater.' },
     { q: 'Do I need prior yoga experience?', a: 'No. Aqua yoga is an excellent entry point for anyone new to yoga.' },
-    { q: 'Is aqua yoga suitable for my condition?', a: 'Aqua yoga is specifically designed for people living with chronic pain, hypermobility, arthritis, autoimmune conditions, and menopause-related symptoms.' },
+    { q: 'Is aqua yoga suitable for my condition?', a: 'Aqua yoga is gentle enough to be practiced by people living with chronic pain, autoimmune conditions, and menopause-related symptoms — as well as older adults and anyone who finds land-based movement difficult.' },
     { q: 'Where do private sessions take place?', a: 'Sessions can take place at my pool in Hollywood, Broward County, or at your own pool.' },
     { q: 'What should I wear?', a: 'A comfortable swimsuit. Water shoes are optional but recommended.' },
     { q: 'Will I get my hair wet?', a: 'Not necessarily. Getting your hair wet is entirely optional.' },

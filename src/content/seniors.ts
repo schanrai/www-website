@@ -10,10 +10,11 @@ export interface SeniorFaq {
 
 export const SENIORS = {
   meta: {
-    title: 'Aqua Yoga for Seniors | Gentle water exercise in Broward & North Miami',
+    title: 'Aqua Yoga for Seniors | Gentle Water Exercise | Broward & Miami',
     description:
       'Gentle aqua yoga and low impact pool-based exercise for seniors. Support mobility, balance, flexibility, and strength. Serving Broward & North Miami.',
     canonicalUrl: 'https://www.waterwomanwellness.com/seniors',
+    ogImage: '/og-seniors.jpg',
   },
 
   hero: {
