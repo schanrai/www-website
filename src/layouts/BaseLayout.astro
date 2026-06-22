@@ -7,6 +7,7 @@ interface Props {
   canonicalUrl: string;
   ogImage?: string;
   isHomepage?: boolean;
+  noindex?: boolean;
 }
 
 const {
@@ -15,7 +16,10 @@ const {
   canonicalUrl,
   ogImage = '/og-image.jpg',
   isHomepage = false,
+  noindex = false,
 } = Astro.props;
+
+const robotsContent = noindex ? 'noindex, follow' : 'index, follow';
 
 const siteUrl = 'https://www.waterwomanwellness.com';
 const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
@@ -44,7 +48,7 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robotsContent} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
