@@ -86,6 +86,19 @@ const jsonLd = {
     {isHomepage && (
       <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
+
+    <!-- Google Analytics -->
+    {import.meta.env.PROD && (
+      <>
+        <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-37SKRDPM04"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-37SKRDPM04');
+        </script>
+      </>
+    )}
   </head>
   <body>
     <slot />
