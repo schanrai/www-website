@@ -33,7 +33,7 @@ const CONTENT = {
     positioning: 'Mindful water-based therapy for women ready to move with freedom again.',
     subheading: 'Mindful, clinically-supported, low-impact aqua yoga for women navigating chronic pain, menopause, and healthy aging.',
     location: 'Serving all areas between Hollywood, Fort Lauderdale, Aventura, Sunny Isles and North Miami.',
-    launch: 'Classes begin August 1st 2026.',
+    launch: 'Classes begin September 1st 2026.',
     cta: 'Make an Enquiry'
   },
   whyWater: {
@@ -76,7 +76,7 @@ const CONTENT = {
     resolution: [
     'Discovering aqua yoga, I was able to start moving again \u2014 gently, safely, and without bracing against my own body.',
     'The water gave my joints the relief they needed. It gave my nervous system permission to let go. And it gave me back a relationship with my body I thought I had lost.',
-    'I am now a certified RYT-200 yoga instructor and certified Aqua Yoga therapist, trained in therapeutic and somatic approaches to movement.',
+    'I am now a certified RYT-200 yoga teacher and Aqua Yoga instructor, trained in therapeutic and somatic approaches to movement.',
     'I am also a freediver \u2014 because water is not just where I work. It is where I feel most at home.'],
 
     closing: 'I created Water Woman Wellness for women who are where I was \u2014 ready to move again, but needing a gentler, smarter way in.',
@@ -91,7 +91,7 @@ const CONTENT = {
     { q: 'Do I need to know how to swim?', a: 'No. Classes are practiced in chest-depth water. You will never be asked to go underwater.' },
     { q: 'Do I need prior yoga experience?', a: 'No. Aqua yoga is an excellent entry point for anyone new to yoga.' },
     { q: 'Is aqua yoga suitable for my condition?', a: 'Aqua yoga is gentle enough to be practiced by people living with chronic pain, autoimmune conditions, and menopause-related symptoms — as well as older adults and anyone who finds land-based movement difficult.' },
-    { q: 'Where do private sessions take place?', a: 'Sessions can take place at my pool in Hollywood, Broward County, or at your own pool.' },
+    { q: 'Where do private sessions take place?', a: 'Sessions can take place at a pool in my local fitness club in Hollywood, or at your own pool.' },
     { q: 'What should I wear?', a: 'A comfortable swimsuit. Water shoes are optional but recommended.' },
     { q: 'Will I get my hair wet?', a: 'Not necessarily. Getting your hair wet is entirely optional.' },
     { q: 'How much do classes cost?', a: 'Private sessions are offered as an introductory package of 3 \u00d7 60-minute sessions. Please contact me for pricing.' }],

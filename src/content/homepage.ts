@@ -79,7 +79,7 @@ export const CONTENT = {
       title: 'One-on-One Sessions',
       desc: 'Private therapeutic aqua yoga sessions tailored entirely to your body, your conditions, and your goals.',
       detail:
-        'Sessions can take place at your own pool or at my pool in Broward County \u2014 whatever works best for you.',
+        'Sessions can take place at your own pool or at my local fitness club in Hollywood - whatever works best for you.',
       cta: 'Enquire about private sessions \u2192',
       ctaHref: 'mailto:hello@waterwomanwellness.com',
       image: '/src/assets/images/aerial-watsu.png',
@@ -101,7 +101,7 @@ export const CONTENT = {
     resolution: [
       'Discovering aqua yoga, I was able to start moving again \u2014 gently, safely, and without bracing against my own body.',
       'The water gave my joints the relief they needed. It gave my nervous system permission to let go. And it gave me back a relationship with my body I thought I had lost.',
-      'I am now a certified RYT-200 yoga instructor and certified Aqua Yoga therapist, trained in therapeutic and somatic approaches to movement.',
+      'I am now a certified RYT-200 yoga teacher and Aqua Yoga instructor, trained in therapeutic and somatic approaches to movement.',
       'I am also a freediver \u2014 because water is not just where I work. It is where I feel most at home.',
     ],
     closing:
@@ -130,7 +130,7 @@ export const CONTENT = {
         },
         {
           q: 'Where do private sessions take place?',
-          a: 'Sessions can take place at my pool in Hollywood, Broward County, or at your own pool.',
+          a: 'Sessions can take place at a pool in my local fitness club in Hollywood, or at your own pool.',
         },
         {
           q: 'What should I wear?',
@@ -151,7 +151,7 @@ export const CONTENT = {
       items: [
         {
           q: 'What are your qualifications?',
-          a: 'Certified RYT-200 yoga instructor and certified Aqua Yoga therapist.',
+          a: 'Certified RYT-200 yoga teacher and certified Aqua Yoga instructor.',
         },
         {
           q: 'What pool specifications do you require?',

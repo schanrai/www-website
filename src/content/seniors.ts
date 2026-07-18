@@ -24,7 +24,7 @@ export const SENIORS = {
 
   heroBody: {
     subheading: 'Stay strong, mobile and independent at any age with aqua yoga.',
-    lead: 'Whatever your body has been through, the water meets you where you are. Aqua yoga is one of the most accessible and effective forms of gentle water exercise available to older adults \u2014 and it works precisely because water removes the barriers that land-based exercise cannot.',
+    lead: 'Whatever your body has been through, the water meets you where you are. Aqua yoga is one of the most accessible and effective forms of gentle water exercise available to older adults  and it works precisely because water removes the barriers that land-based exercise cannot.',
     cta: 'Make an Enquiry',
   },
 
@@ -91,7 +91,7 @@ export const SENIORS = {
       },
       {
         q: 'Where do classes take place?',
-        a: 'Sessions can take place either at my pool in Hollywood, Broward, or at your own or your facility\u2019s pool.',
+        a: 'Sessions can take place either at my local fitness club in Hollywood, or at your own or your facility\u2019s pool.',
       },
       {
         q: 'I have trouble getting up and down from the floor \u2014 is this suitable for me?',
@@ -111,7 +111,7 @@ export const SENIORS = {
   meetSushi: {
     label: 'Meet Your Instructor',
     intro:
-      'Sushi Chanrai is a certified RYT-200 yoga instructor and certified Aqua Yoga therapist. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
+      'Sushi Chanrai is a certified RYT-200 yoga teacher and certified Aqua Yoga instructor. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
     linkText: 'Read Sushi\u2019s full story \u2192',
     linkHref: '/#about',
   },
