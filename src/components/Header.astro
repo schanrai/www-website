@@ -8,6 +8,8 @@ const navLinks = [
   { label: 'Menopause', href: '/menopause' },
   { label: 'Seniors', href: '/seniors' },
 ];
+
+const visibleLinks = navLinks.filter(link => link.href !== currentPage);
 ---
 
 <header>
@@ -21,14 +23,23 @@ const navLinks = [
         loading="eager"
       />
     </a>
+
     <div class="nav-links">
-      {navLinks
-        .filter(link => link.href !== currentPage)
-        .map(link => (
-          <a href={link.href} class="nav-link">{link.label}</a>
-        ))
-      }
+      {visibleLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
     </div>
+
+    <details class="nav-mobile">
+      <summary class="nav-toggle" aria-label="Open menu">
+        <span class="hamburger-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="nav-mobile-menu">
+        {visibleLinks.map(link => (
+          <a href={link.href} class="nav-link">{link.label}</a>
+        ))}
+      </div>
+    </details>
   </nav>
 </header>
 
@@ -93,18 +104,107 @@ const navLinks = [
     opacity: 0.7;
   }
 
-  @media (max-width: 480px) {
+  /* Mobile hamburger — hidden on desktop */
+  .nav-mobile {
+    display: none;
+    position: relative;
+  }
+
+  .nav-toggle {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+    color: var(--color-deep-teal);
+  }
+
+  .nav-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Three-line hamburger, morphs to an X when open */
+  .hamburger-icon,
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .hamburger-icon {
+    position: relative;
+  }
+
+  .hamburger-icon::before {
+    position: absolute;
+    top: -7px;
+    left: 0;
+  }
+
+  .hamburger-icon::after {
+    position: absolute;
+    top: 7px;
+    left: 0;
+  }
+
+  .nav-mobile[open] .hamburger-icon {
+    background-color: transparent;
+  }
+
+  .nav-mobile[open] .hamburger-icon::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-mobile[open] .hamburger-icon::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-ivory-alt);
+    border: 1px solid rgba(216, 199, 180, 0.19);
+    box-shadow: 0 8px 24px rgba(6, 70, 83, 0.08);
+    padding: 4px 20px;
+  }
+
+  .nav-mobile-menu .nav-link {
+    padding: 6px 0;
+  }
+
+  @media (max-width: 540px) {
     nav {
       height: auto;
       padding: 16px var(--section-px);
     }
 
     .nav-links {
-      gap: 20px;
+      display: none;
     }
 
-    .nav-link {
-      font-size: 13px;
+    .nav-mobile {
+      display: block;
     }
   }
 </style>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.nav-mobile');
+  if (menu) {
+    document.addEventListener('click', (event) => {
+      if (menu.open && !menu.contains(event.target as Node)) {
+        menu.removeAttribute('open');
+      }
+    });
+  }
+</script>
