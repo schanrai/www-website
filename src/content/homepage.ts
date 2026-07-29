@@ -25,8 +25,8 @@ export const CONTENT = {
       'Mindful water-based exercise to help you move with freedom again.',
     supporting: 'Restore Strength. Move with Ease.',
     subheading:
-      'Mindful, therapeutic-inspired, low-impact aqua yoga for every body',
-    lead: 'Whether you\u2019re navigating menopause, managing chronic pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
+      'Mindful, therapeutically informed, low-impact aqua yoga for every body',
+    lead: 'Whether you\u2019re navigating midlife, managing chronic pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
     location:
       'Serving all areas in and between Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
     launch: 'Classes begin September 1st 2026.',
