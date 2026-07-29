@@ -90,7 +90,7 @@ export const MENOPAUSE = {
       },
       {
         q: 'How long are the sessions?',
-        a: 'Group classes run for approximately 60 minutes. Private sessions can be tailored to your needs and schedule.',
+        a: 'Group classes run for approximately 45 minutes. Private sessions can be tailored to your needs and schedule.',
       },
       {
         q: 'Where do classes take place?',

@@ -142,7 +142,7 @@ export const CONTENT = {
         },
         {
           q: 'How much do private sessions cost?',
-          a: 'Private sessions are offered as an introductory package of 3 \u00d7 60-minute sessions. Please contact me for pricing.',
+          a: 'Private sessions are offered as an introductory package of 3 \u00d7 50-minute sessions. Please contact me for pricing.',
         },
       ] satisfies FaqItem[],
     },

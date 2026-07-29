@@ -87,7 +87,7 @@ export const SENIORS = {
       },
       {
         q: 'How long are the sessions?',
-        a: 'Group classes run for approximately 60 minutes. Private sessions can be tailored to your needs and schedule.',
+        a: 'Group classes run for approximately 45 minutes. Private sessions can be tailored to your needs and schedule.',
       },
       {
         q: 'Where do classes take place?',
@@ -111,7 +111,7 @@ export const SENIORS = {
   meetSushi: {
     label: 'Meet Your Instructor',
     intro:
-      'Sushi Chanrai is a certified aqua yoga teacher and RYT-200 yoga teacher. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
+      'Sushi Chanrai is a certified aqua yoga teacher and RYT-200 yoga teacher. She created Water Woman Wellness for people who are ready to move again \u2014 but need a more gentle, smarter way in.',
     linkText: 'Read Sushi\u2019s full story \u2192',
     linkHref: '/#about',
   },
