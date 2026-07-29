@@ -68,7 +68,7 @@ export const CONTENT = {
     title: 'Move with Support',
     group: {
       title: 'Group Classes',
-      desc: 'Bringing Water Woman Wellness to your community or club — condo and HOA pools, active adult and retirement communities, YMCAs, and private gyms.',
+      desc: 'Bringing group classes to your community or club — condo and HOA pools, active adult and retirement communities, YMCAs, and private gyms.',
       detail:
         'Classes are tailored to your residents or members, delivered in your pool on a schedule that works for you.',
       cta: 'Enquire about group classes \u2192',
