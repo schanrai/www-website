@@ -68,7 +68,7 @@ export const CONTENT = {
     title: 'Move with Support',
     group: {
       title: 'Group Classes',
-      desc: 'Bringing Water Woman Wellness to your facility \u2014 senior centers, retirement communities, assisted living, and private residential pools.',
+      desc: 'Bringing Water Woman Wellness to your community or club — condo and HOA pools, active adult and retirement communities, YMCAs, and private gyms.',
       detail:
         'Classes are tailored to your residents or members, delivered in your pool on a schedule that works for you.',
       cta: 'Enquire about group classes \u2192',
@@ -126,7 +126,7 @@ export const CONTENT = {
         },
         {
           q: 'Is aqua yoga suitable for my condition?',
-          a: 'Aqua yoga is gentle enough to be practiced by people living with chronic pain, autoimmune conditions, and menopause-related symptoms — as well as older adults and anyone who finds land-based movement difficult.',
+          a: 'Aqua yoga is gentle enough to be practiced by people living with chronic pain, autoimmune conditions, and injuries — as well as older adults and anyone who finds land-based movement difficult.',
         },
         {
           q: 'Where do private sessions take place?',
@@ -141,13 +141,13 @@ export const CONTENT = {
           a: 'Not necessarily. Getting your hair wet is entirely optional.',
         },
         {
-          q: 'How much do classes cost?',
+          q: 'How much do private sessions cost?',
           a: 'Private sessions are offered as an introductory package of 3 \u00d7 60-minute sessions. Please contact me for pricing.',
         },
       ] satisfies FaqItem[],
     },
     facility: {
-      heading: 'For Facilities',
+      heading: 'For Groups',
       items: [
         {
           q: 'What are your qualifications?',
