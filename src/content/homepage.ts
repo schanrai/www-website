@@ -105,7 +105,7 @@ export const CONTENT = {
       'I am also a freediver \u2014 because water is not just where I work. It is where I feel most at home.',
     ],
     closing:
-      'I created Water Woman Wellness for women who are where I was \u2014 ready to move again, but needing a gentler, smarter way in.',
+      'I created Water Woman Wellness for people who are where I was \u2014 ready to move again, but needing a gentler, smarter way in.',
     signature: 'Sushi Chanrai',
     certifications: ['RYT-200, Yoga Alliance', 'Aqua Yoga Certification, Yoga Alliance, Trained by Christa Fairbrother'],
     specialization: ['Therapeutic Yoga Training, Soma Yoga Institute'],
@@ -168,6 +168,10 @@ export const CONTENT = {
         {
           q: 'How much do group classes cost?',
           a: 'Pricing is discussed directly with the facility.',
+        },
+        {
+          q: 'Do you teach men?',
+          a: 'Yes — men are welcome in group classes, including all classes held at facilities and community pools. One-on-one private sessions are offered to women only.',
         },
       ] satisfies FaqItem[],
     },
