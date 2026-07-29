@@ -22,30 +22,30 @@ export const CONTENT = {
 
   hero: {
     tagline:
-      'Mindful water-based therapy for women ready to move with freedom again.',
+      'Mindful water-based exercise to help you move with freedom again.',
     supporting: 'Restore Strength. Move with Ease.',
     subheading:
-      'Mindful, clinically-supported, low-impact aqua yoga for women navigating chronic pain, menopause, and healthy aging.',
-    lead: 'Whether you\u2019re navigating menopause, managing chronic joint pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
+      'Mindful, therapeutic-inspired, low-impact aqua yoga for every body',
+    lead: 'Whether you\u2019re navigating menopause, managing chronic pain, or simply looking for a gentler, more sustainable way to stay strong and mobile \u2014 aqua yoga meets you where you are. In the water, movement becomes accessible again. Progress comes without punishment.',
     location:
       'Serving all areas in and between Hollywood, Fort Lauderdale, Pembroke Pines, Aventura, Sunny Isles and North Miami.',
     launch: 'Classes begin September 1st 2026.',
     cta: 'Make an Enquiry',
-    ctaHref: 'mailto:hello@waterwomanwellness.com',
+    ctaHref: 'mailto:info@waterwomanwellness.com',
   },
 
   whyWater: {
     label: 'Why Water',
     title: 'Movement without the weight of gravity',
     intro:
-      'Water creates a uniquely forgiving environment for therapeutic movement. Here\u2019s what changes the moment you step in:',
+      'Water creates a uniquely forgiving environment for therapeutic-inspired movement. Here\u2019s what changes the moment you step in:',
     benefits: [
       {
         bold: 'Joint load reduced by up to 80%',
         text: 'buoyancy offloads your joints, allowing range of motion that land-based exercise simply cannot offer',
       },
       {
-        bold: 'No fear of falling',
+        bold: 'Challenges balance in a safe way',
         text: 'water supports you while gently challenging your balance and stability',
       },
       {
@@ -72,7 +72,7 @@ export const CONTENT = {
       detail:
         'Classes are tailored to your residents or members, delivered in your pool on a schedule that works for you.',
       cta: 'Enquire about group classes \u2192',
-      ctaHref: 'mailto:hello@waterwomanwellness.com',
+      ctaHref: 'mailto:info@waterwomanwellness.com',
       image: '/src/assets/images/class-tree-pose.png',
     },
     priv: {
@@ -81,7 +81,7 @@ export const CONTENT = {
       detail:
         'Sessions can take place at your own pool or at my local fitness club in Hollywood - whatever works best for you.',
       cta: 'Enquire about private sessions \u2192',
-      ctaHref: 'mailto:hello@waterwomanwellness.com',
+      ctaHref: 'mailto:info@waterwomanwellness.com',
       image: '/src/assets/images/aerial-watsu.png',
     },
   },
@@ -101,7 +101,7 @@ export const CONTENT = {
     resolution: [
       'Discovering aqua yoga, I was able to start moving again \u2014 gently, safely, and without bracing against my own body.',
       'The water gave my joints the relief they needed. It gave my nervous system permission to let go. And it gave me back a relationship with my body I thought I had lost.',
-      'I am now a certified RYT-200 yoga teacher and Aqua Yoga instructor, trained in therapeutic and somatic approaches to movement.',
+      'I am now a certified aqua yoga instructor and RYT-200 yoga teacher, trained in therapeutic and somatic approaches to movement.',
       'I am also a freediver \u2014 because water is not just where I work. It is where I feel most at home.',
     ],
     closing:

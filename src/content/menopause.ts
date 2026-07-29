@@ -118,7 +118,7 @@ export const MENOPAUSE = {
   meetSushi: {
     label: 'Meet Your Instructor',
     intro:
-      'Sushi Chanrai is a certified RYT-200 yoga instructor and certified Aqua Yoga therapist. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
+      'Sushi Chanrai is a certified aqua yoga instructor and RYT-200 yoga teacher. She created Water Woman Wellness for women who are ready to move again \u2014 but need a more gentle, smarter way in.',
     linkText: 'Read Sushi\u2019s full story \u2192',
     linkHref: '/#about',
   },
