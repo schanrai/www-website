@@ -15,7 +15,7 @@ export const CONTENT = {
   meta: {
     title: 'Therapeutic Aqua Yoga for Women | Broward & North Miami',
     description:
-      'Therapeutic aqua yoga for women navigating chronic pain, menopause and healthy aging. Group and private classes in Broward & North Miami. September 2026.',
+      'Therapeutic aqua yoga for men & women navigating chronic pain, menopause and mobility. Group and private classes in Broward & North Miami.',
     canonicalUrl: 'https://www.waterwomanwellness.com',
     ogImage: '/og-image.jpg',
   },
